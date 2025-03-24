@@ -1,7 +1,3 @@
-Absolutely! Here's a clean, professional **README.md** for your **Full-Stack To-Do List App**. It covers everything you'd want to show on GitHub: description, features, tech stack, installation, usage, and more.
-
----
-
 # 📝 Full-Stack To-Do List App
 
 A simple, responsive full-stack To-Do List application built with **HTML, CSS, JavaScript (frontend)** and **Node.js, Express, PostgreSQL (backend)**. It includes **user authentication** (Sign Up / Sign In) and **CRUD operations** for managing personal tasks.
