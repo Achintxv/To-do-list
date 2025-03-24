@@ -53,7 +53,7 @@ project-root/
 
 1. **Clone the repo**
    ```bash
-   git clone https://github.com/Achintxv/fullstack-todo-app.git
+   git clone https://github.com/Achintxv/To-do-list.git
    cd fullstack-todo-app
    ```
 
@@ -105,7 +105,7 @@ project-root/
    ```
 
 6. **Access the app**
-   - Visit: [http://localhost:3000](http://localhost:3000)
+   - Visit: (http://localhost:3000)
    - You'll be redirected to the **Sign In** page.
    
 ---
