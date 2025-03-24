@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="todo-container">
+    <h2>My To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="New task..." />
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <script>
+    async function fetchTasks() {
+      const res = await fetch('/tasks');
+      const tasks = await res.json();
+      const list = document.getElementById('taskList');
+      list.innerHTML = '';
+      tasks.forEach(task => {
+        const li = document.createElement('li');
+        li.innerHTML = `${task.description} 
+          <button onclick="deleteTask(${task.id})">Delete</button>`;
+        list.appendChild(li);
+      });
+    }
+
+    async function addTask() {
+      const input = document.getElementById('taskInput').value;
+      await fetch('/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ description: input })
+      });
+      fetchTasks();
+      document.getElementById('taskInput').value = '';
+    }
+
+    async function deleteTask(id) {
+      await fetch(`/tasks/${id}`, { method: 'DELETE' });
+      fetchTasks();
+    }
+
+    function logout() {
+      window.location.href = 'signin.html';
+    }
+
+    fetchTasks();
+  </script>
+</body>
+</html>
